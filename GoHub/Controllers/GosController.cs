@@ -33,7 +33,8 @@ namespace GoHub.Controllers
             var go = new Go
             {
                 ArticalId = User.Identity.GetUserId(),
-                DateTime = DateTime.Parse($"{viewModel.Date} {viewModel.Time}"),
+                DateTime = viewModel.DateTime,
+                //DateTime = DateTime.Parse(string.Format("{0} {1}", viewModel.Date,viewModel.Time)),
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };

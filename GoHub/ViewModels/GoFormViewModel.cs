@@ -11,6 +11,9 @@ namespace GoHub.ViewModels
         public String Time { get; set; }
         public byte Genre { get; set; }
         public IEnumerable<Genre> Genres { get; set; }
+
+        public DateTime DateTime => DateTime.Parse($"{Date} {Time}");
     }
 }
 
+//get { return DateTime.Parse($"{Date} {Time}"); }
