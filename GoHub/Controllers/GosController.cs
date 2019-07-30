@@ -27,6 +27,7 @@ namespace GoHub.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(GoFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
