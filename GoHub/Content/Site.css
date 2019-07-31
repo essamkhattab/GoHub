@@ -23,6 +23,12 @@ textarea {
     max-width: 280px;
 }
 
+/*ASP.NET MVC*/ 
+
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
 
 /*Bootstrap Overrides*/
 
@@ -54,7 +60,7 @@ textarea {
     -webkit-box-shadow: none;
 }
 
-.navbar-brand{ font-weight: 700;}
+.navbar-brand { font-weight: 700; }
 
 body {
     font-size: 17px;
