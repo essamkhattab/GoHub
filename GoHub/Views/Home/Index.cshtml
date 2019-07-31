@@ -4,9 +4,29 @@
     ViewBag.Title = "Home Page";
 }
 
-<ul>
+<ul class="gos">
     @foreach (var go in Model)
     {
-        <li>@go.DateTime - @go.Artical.Name</li>
+        @*<li>@go.DateTime - @go.Artical.Name</li>*@
+    <li>
+        <div class="date">
+            <div class="month">
+                @go.DateTime.ToString("MMM")
+            </div>
+            <div class="day">
+                @go.DateTime.ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+            <span class="artical">
+                @go.Artical.Name
+            </span>
+            <span class="genre">
+                @go.Genre.Name
+            </span>
+        </div>
+
+
+    </li>
     }
 </ul>

@@ -14,7 +14,7 @@ namespace GoHub.Controllers
         {
            _context = new ApplicationDbContext(); 
         }
-        // GET: Gos
+        // GET: gos
         [Authorize]
         public ActionResult Create()
         {

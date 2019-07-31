@@ -23,5 +23,7 @@ namespace GoHub.ViewModels
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
+
+        public string Code { get; set; }
     }
 }

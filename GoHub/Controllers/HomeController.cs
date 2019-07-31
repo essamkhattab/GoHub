@@ -19,6 +19,7 @@ namespace GoHub.Controllers
         {
             var upcomingGos = _context.Gos
                 .Include(g => g.Artical)
+                .Include(g => g.Genre)
                 .Where(g => g.DateTime > DateTime.Now);
 
             return View(upcomingGos);

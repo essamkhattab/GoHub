@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
+
+
 namespace GoHub.Controllers
 {
     [Authorize]
@@ -242,7 +244,7 @@ namespace GoHub.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ResetPassword(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
