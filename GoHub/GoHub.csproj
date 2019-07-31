@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201907260037126_AddForeignKeyPropertiesToGo.Designer.cs">
       <DependentUpon>201907260037126_AddForeignKeyPropertiesToGo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907311517219_AddNameToApplicationUser.cs" />
+    <Compile Include="Migrations\201907311517219_AddNameToApplicationUser.Designer.cs">
+      <DependentUpon>201907311517219_AddNameToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -211,6 +215,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
     <Compile Include="ViewModels\GoFormViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -302,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907260037126_AddForeignKeyPropertiesToGo.resx">
       <DependentUpon>201907260037126_AddForeignKeyPropertiesToGo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907311517219_AddNameToApplicationUser.resx">
+      <DependentUpon>201907311517219_AddNameToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
