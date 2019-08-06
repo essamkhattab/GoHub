@@ -3,7 +3,7 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
+ /*Set padding to keep content from hitting the edges*/ 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -30,7 +30,16 @@ span.field-validation-error {
     font-weight: bold;
 }
 
+.voffset { margin-top: 2px;}
+.voffset1 { margin-top: 5px;}
+.voffset2 { margin-top: 10px;}
+.voffset3 { margin-top: 20px;}
+.voffset4 { margin-top: 40px;}
+.voffset5 { margin-top: 80px;}
+
 /*Bootstrap Overrides*/
+
+
 
 .navbar-inverse  {
     background-color: #ff4342;
@@ -43,6 +52,12 @@ span.field-validation-error {
      color: #fff;
 }
 
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #e4433b;
+}
+
 .navbar-inverse .navbar-nav > li > a {
         color: #fff;
     }
@@ -51,20 +66,16 @@ span.field-validation-error {
     color: #FFF;
 }
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        background-color: #e4433b;
-    }
+
 
 .dropdown-menu {
-    box-shadow: none;
     -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .navbar-brand { font-weight: 700; }
 
-body {
-    font-size: 17px;
-}
+body {font-size: 17px;}
 
 body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -81,20 +92,37 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-radius: 9px;
 }
 
+.form-control:focus {
+        border-color: #ef873e;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
 .btn {
-    font-size: 17px;
-    padding: 7px 20px;
+    /*font-size: 17px;
+    padding: 7px 20px;*/
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
 
-.form-control:focus {
-    border-color: #ef873e;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-}
+
+
+
 
 /*page-level style*/
+
+.gos {list-style: none;}
+
+.gos > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.gos li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
 
 .gos> li .date {
     background: red;
@@ -118,22 +146,24 @@ body,h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-size: 20px;
     padding: 6px 12px;
     }
-.gos li .details {
-    position: absolute;
-    top: 0;
-    left: 70px;}
-.gos li .details .artical {
+
+
+.gos > li .details .artical {
         font-weight: bold;
-        display: block
+        display: block; 
     }
 
-.gos li .details .genre {
+.gos > li .details .genre {
     font-size: 15px;
+    display: block
+
     }
 
-.gos {list-style: none;}
 
 
-.gos > li { position:relative; margin-bottom: 30px;}
+
+    
+
+
 
     

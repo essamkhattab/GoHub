@@ -1,4 +1,5 @@
 ﻿using GoHub.Models;
+using GoHub.ViewModels;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -22,7 +23,14 @@ namespace GoHub.Controllers
                 .Include(g => g.Genre)
                 .Where(g => g.DateTime > DateTime.Now);
 
-            return View(upcomingGos);
+            var ViewModel = new GosViewModel
+            {
+                UpcomingGos = upcomingGos,
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading =  "Upcoming Gos"
+            };
+
+            return View("Gos",ViewModel);
         }
 
         public ActionResult About()

@@ -28,7 +28,9 @@ namespace GoHub.ViewModels
 
         public DateTime GetDateTime()
         {
-            return DateTime.Parse(String.Format("{0} {1}", Date, Time));
+            return DateTime.Parse($"{Date} {Time}");
+            //return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+
         }
     }
 }

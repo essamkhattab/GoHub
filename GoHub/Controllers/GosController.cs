@@ -1,6 +1,7 @@
 ﻿using GoHub.Models;
 using GoHub.ViewModels;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,7 +15,28 @@ namespace GoHub.Controllers
         {
            _context = new ApplicationDbContext(); 
         }
-        // GET: gos
+
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var gos = _context.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Go)
+                .Include(g => g.Artical)
+                .Include(g => g.Genre)
+                .ToList();
+
+            var ViewModel = new GosViewModel()
+            {
+                UpcomingGos = gos,
+                 ShowActions = User.Identity.IsAuthenticated ,  
+                 Heading = "Gos I'm Attending"
+            };
+
+            return View("Gos",ViewModel);
+        }
+
         [Authorize]
         public ActionResult Create()
         {
