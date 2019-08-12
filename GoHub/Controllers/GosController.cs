@@ -1,6 +1,8 @@
 ﻿using GoHub.Models;
 using GoHub.ViewModels;
 using Microsoft.AspNet.Identity;
+using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -13,7 +15,19 @@ namespace GoHub.Controllers
 
         public GosController()
         {
-           _context = new ApplicationDbContext(); 
+            _context = new ApplicationDbContext();
+        }
+
+        [Authorize]
+        public ActionResult Mine()
+        {
+            var userId = User.Identity.GetUserId();
+            var gos = _context.Gos
+                .Where(g => g.ArticalId == userId && g.DateTime > DateTime.Now)
+                .Include(g => g.Genre)
+                .ToList();
+
+            return View(gos);
         }
 
         [Authorize]
@@ -70,7 +84,7 @@ namespace GoHub.Controllers
             _context.Gos.Add(go);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Mine", "Gos");
 
         }
 
