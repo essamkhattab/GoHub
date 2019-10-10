@@ -8,5 +8,6 @@ namespace GoHub.ViewModels
         public IEnumerable<Go> UpcomingGos { get; set; }
         public bool ShowActions { get; set; }
         public string Heading { get; set; }
+        public string SearchTerm { get; set; }
     }
 }

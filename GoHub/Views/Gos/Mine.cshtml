@@ -18,6 +18,7 @@
                     @go.DateTime.ToString("d ")
                 </div>
             </div>
+
             <div class="details">
 
                 <span class="artical">
@@ -30,10 +31,68 @@
                     @go.Genre.Name
                 </span>
 
-               
+                <div class="actions">
+                    <a href="@Url.Action("Edit", "Gos", new {id = go.Id})">
+                        Edit
+                    </a> |
+
+                    <a href="#" class="js-cancel-go" data-go-id="@go.Id">
+                        Cancel
+                    </a>
+                </div>
 
             </div>
 
         </li>
     }
 </ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+
+            $(".js-cancel-go").click(function(e) {
+                var link = $(e.target);
+
+                var dialog = bootbox.dialog({
+                    title: 'Confirm',
+                    message: "<p>Are you sure you want cancel this go?</p>",
+                    size: 'large',
+                    buttons: {
+                        No: {
+                            label: "No",
+                            className: 'btn-default',
+                            callback: function() {
+                                bootbox.hideAll();
+                            }
+                        },
+                        yes: {
+                            label: "Yes",
+                            className: 'btn-warning',
+                            callback: function(){
+                                $.ajax({
+                                        url: "/api/gos/" + link.attr("data-go-id"),
+                                        method: "DELETE"
+                                    })
+                                    .done(function() {
+                                        link.parents("li").fadeOut(function() {
+                                            $(this).remove();
+                                        });
+                                    })
+                                    .fail(function() {
+                                        alert("Something failed!");
+                                    });
+
+                            }
+                        }
+                        
+                        
+                    }
+                });
+
+            });
+
+        });
+    </script>
+}

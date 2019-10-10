@@ -4,6 +4,18 @@
 }
 
 <h1>@Model.Heading</h1>
+@using (Html.BeginForm("Search", "Gos"))
+{
+    <div class="form-group"  >
+        <div  class="input-group" id="searchGo" style="width: 300px">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control" })
+            <span class="input-group-addon" >
+                <i class="glyphicon glyphicon-search" ></i>
+            </span>
+        </div>
+    </div>
+    
+}
 <ul class="gos voffset4">
     @foreach (var go in Model.UpcomingGos)
     {
@@ -16,15 +28,24 @@
                     @go.DateTime.ToString("d ")
                 </div>
             </div>
+
             <div class="details">
 
                 <span class="artical">
                     @go.Artical.Name
                     
+                    @if (go.IsCanceled)
+                    {
+                        <span class=" label label-warning">Canceled</span>
+                    }
+                    
+
                     @if (Model.ShowActions)
                     {
 
-                        <button data-user-id="@go.ArticalId" class="btn btn-link btn-sm pull-right  js-toggle-follow">Follow</button>
+                        <button data-user-id="@go.ArticalId" class="btn btn-link btn-sm pull-right  js-toggle-follow">
+                            Follow
+                        </button>
                     }
                 </span>
                 <span class="genre">
@@ -32,7 +53,7 @@
                     @go.Genre.Name
                 </span>
 
-                @if(Model.ShowActions)
+                @if (Model.ShowActions && !go.IsCanceled)
 
                 {
                     <button data-go-id="@go.Id" class=" btn  btn-default btn-sm pull-right  js-toggle-attendance">
@@ -43,7 +64,7 @@
             </div>
 
         </li>
-    }
+        }
 </ul>
 
 @section scripts

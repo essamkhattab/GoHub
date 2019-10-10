@@ -1,4 +1,5 @@
-﻿using System.Web.Optimization;
+﻿using System.Web.Http.Description;
+using System.Web.Optimization;
 
 namespace GoHub
 {
@@ -7,8 +8,13 @@ namespace GoHub
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/lib").Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/underscore-min.js",
+                        "~/Scripts/moment.js",
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/ResponseDescription.js",
+                        "~/Scripts/bootbox.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -18,12 +24,11 @@ namespace GoHub
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
-
+          
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/Site.css"));
+                      "~/Content/site.less",
+                      "~/Content/animate.css"));
         }
     }
 }
